@@ -1,0 +1,24 @@
+device: cisco_ios
+c_hostname: 192.168.10.79
+c_username : netmiko
+c_password : netmiko
+c_secret   : secret
+c_report     : fisier_raport
+
+precheck:
+   - show interface description
+   - show run
+   - show version
+
+
+config:
+    - interface tunnel 5001
+    - bandwidth 1024
+    - description test
+
+
+postcheck:
+    - show run
+    - show interface
+change_id :  none 
+report_file :  report 
